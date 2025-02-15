@@ -91,6 +91,43 @@
     View GitHub Profile
   </a>
 </div>
+  <!-- education Section -->
+  <section id="education" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900">Education</h2>
+          <p class="text-gray-600 mt-2">My academic journey</p>
+        </div>
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <!-- Timeline line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
+            
+            <div v-for="(item, index) in education" 
+                 :key="index"
+                 class="relative mb-8">
+              <div :class="[
+                'flex items-center w-full',
+                index % 2 === 0 ? 'flex-row-reverse' : ''
+              ]">
+                <div class="w-5/12"></div>
+                <div class="w-2/12 flex justify-center">
+                  <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+                </div>
+                <div class="w-5/12 bg-white p-6 rounded-xl shadow-lg">
+                  <div class="flex flex-col">
+                    <span class="text-sm text-blue-600">{{ item.date }}</span>
+                    <h3 class="text-lg font-bold text-gray-900 mt-1">{{ item.title }}</h3>
+                    <span class="text-gray-600">{{ item.organization }}</span>
+                    <p class="text-gray-600 mt-2">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Projects Section -->
     <section id="projects" class="py-20">
       <div class="container mx-auto px-4">
@@ -164,49 +201,14 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900">Experience & Activities</h2>
-          <p class="text-gray-600 mt-2">My academic and professional journey</p>
-        </div>
-        <div class="max-w-4xl mx-auto">
-          <div class="relative">
-            <!-- Timeline line -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
-            
-            <div v-for="(item, index) in experience" 
-                 :key="index"
-                 class="relative mb-8">
-              <div :class="[
-                'flex items-center w-full',
-                index % 2 === 0 ? 'flex-row-reverse' : ''
-              ]">
-                <div class="w-5/12"></div>
-                <div class="w-2/12 flex justify-center">
-                  <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
-                </div>
-                <div class="w-5/12 bg-white p-6 rounded-xl shadow-lg">
-                  <div class="flex flex-col">
-                    <span class="text-sm text-blue-600">{{ item.date }}</span>
-                    <h3 class="text-lg font-bold text-gray-900 mt-1">{{ item.title }}</h3>
-                    <span class="text-gray-600">{{ item.organization }}</span>
-                    <p class="text-gray-600 mt-2">{{ item.description }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- extra section -->
 
+  <!-- experience section -->
+   
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-          <div class="md:flex">
             <div class="md:w-1/2 p-8 bg-blue-600">
               <h2 class="text-2xl font-bold text-white mb-4">Let's Connect</h2>
               <p class="text-blue-100 mb-6">
@@ -232,38 +234,12 @@
                 </div>
               </div>
             </div>
-            <div class="md:w-1/2 p-8">
-              <form @submit.prevent="handleSubmit" class="space-y-4">
-                <div>
-                  <label class="block text-gray-700 mb-2">Name</label>
-                  <input type="text" 
-                         v-model="form.name"
-                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" />
-                </div>
-                <div>
-                  <label class="block text-gray-700 mb-2">Email</label>
-                  <input type="email" 
-                         v-model="form.email"
-                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" />
-                </div>
-                <div>
-                  <label class="block text-gray-700 mb-2">Message</label>
-                  <textarea v-model="form.message"
-                            rows="4"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"></textarea>
-                </div>
-                <button type="submit" 
-                        class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
+
+          
         </div>
       </div>
     </section>
 
- <!-- Continue from the previous template... -->
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -327,21 +303,17 @@
 </template>
 
 <script setup>
+import education from './data/education'
+import projects from './data/projects'
+import skillCategories from './data/skills'
 import { ref, onMounted } from 'vue'
-import { 
-  ServerIcon, 
-  CodeBracketIcon, 
-  WrenchIcon, 
-  UserGroupIcon,
-  ChipIcon,
-  DatabaseIcon 
-} from '@heroicons/vue/24/outline' 
+
 // Navigation Items
 const navItems = [
   { id: 1, name: 'About', href: '#about' },
   { id: 2, name: 'Projects', href: '#projects' },
   { id: 3, name: 'Skills', href: '#skills' },
-  { id: 4, name: 'Experience', href: '#experience' },
+  { id: 4, name: 'education', href: '#education' },
   { id: 5, name: 'Contact', href: '#contact' }
 ]
 
@@ -351,196 +323,7 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-// Projects data
-const projects = [
-  {
-    id: 1,
-    title: 'Laboratory Management System',
-    duration: 'Nov 2023 - Jan 2024',
-    description: 'A comprehensive management tool for UM6P laboratories, streamlining laboratory operations and inventory tracking.',
-    technologies: ['MySQL', 'React.js', 'Express.js', 'HTML', 'CSS'],
-    features: [
-      'Product request tracking system',
-      'User relationship management',
-      'Order status monitoring',
-      'Supplier records management',
-      'Laboratory product inventory'
-    ]
-  },
-  {
-    id: 2,
-    title: 'PixelLMS Learning Management System',
-    duration: 'Sep 2024 - Jan 2025',
-    description: 'A web-based learning management system with comprehensive features for academic activities.',
-    technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'JWT', 'JUnit'],
-    features: [
-      'Course management system',
-      'Assignment tracking',
-      'Calendar integration',
-      'Academic discussions',
-      'Secure authentication'
-    ]
-  },
-  {
-    id: 3,
-    title: 'HPC Resource Management',
-    duration: 'Dec 2024 - Jan 2025',
-    description: 'High-Performance Computing resource management application for Toubkal Supercomputer.',
-    technologies: ['Python', 'Flask', 'Vue.js', 'JWT', 'SSH'],
-    features: [
-      'Secure JWT authentication',
-      'HPC resource management',
-      'Real-time monitoring',
-      'SSH integration',
-      'Interactive visualization'
-    ]
-  },
-  {
-    id: 4,
-    title: 'Bookstore API',
-    duration: 'Jan 2025',
-    description: 'High-performance bookstore backend application with in-memory data store.',
-    technologies: ['Go', 'REST API', 'In-Memory Store'],
-    features: [
-      'CRUD operations',
-      'Statistics generation',
-      'High-performance data handling',
-      'RESTful architecture'
-    ]
-  }
-]
 
-// Skills categories
-const skillCategories = [
-  {
-    id: 1,
-    title: 'Backend Development',
-    icon: 'ServerIcon',
-    skills: [
-      'Python (Flask)',
-      'Java (Spring Boot)',
-      'Go (Concurrency)',
-      'C/C++',
-      'Firebase',
-      'Servlet'
-    ]
-  },
-  {
-    id: 2,
-    title: 'Frontend Development',
-    icon: 'CodeIcon',
-    skills: [
-      'HTML5',
-      'CSS3',
-      'JavaScript',
-      'Vue.js',
-      'Tailwind CSS'
-    ]
-  },
-  {
-    id: 3,
-    title: 'Database',
-    icon: 'DatabaseIcon',
-    skills: [
-      'MySQL',
-      'PostgreSQL',
-      'Relational Database Design'
-    ]
-  },
-  {
-    id: 4,
-    title: 'Low Level Programming',
-    icon: 'ChipIcon',
-    skills: [
-      'Assembly RISCV',
-      'NASM x86',
-      'Arduino'
-    ]
-  },
-
-  {
-    id: 5,
-    title: 'Software Engineering',
-    icon: 'CodeBracketIcon',
-    skills: [
-      'UML',
-      'OOP',
-      'Design Patterns',
-      'SOLID Principles',
-      'Testing (Postman, JUnit)',
-      'Version Control (Git & GitHub)'
-    ]
-  },
-  {
-    id: 6,
-    title: 'Other',
-    icon: 'WrenchIcon',
-    skills: [
-      'Linux',
-      'Shell Scripting',
-      'API Development',   
-      'High Performance Computing' 
-    ]
-  },
-  {
-    id: 7,
-    title: 'Professional Skills',
-    icon: 'UserGroupIcon',
-    skills: [
-      'Problem Solving',
-      'Scientific Reasoning',
-      'Leadership',
-      'Team Collaboration',
-      'Technical Documentation',
-      'Project Management'
-    ]
-  }
-]
-// Experience timeline
-const experience = [
-  {
-    date: 'Sep 2024 - Present',
-    title: 'Computer Science Student',
-    organization: 'College Of Computing UM6P',
-    description: 'First Year Engineering Cycle with focus on software development and computer science fundamentals.'
-  },
-  {
-    date: 'Mar 2024',
-    title: 'Organization Lead',
-    organization: 'Moroccan National Programming Contest',
-    description: 'Led the organization of the national programming contest at UM6P.'
-  },
-  {
-    date: 'Feb 2024',
-    title: 'Web Master',
-    organization: 'UM6P ACM Student Chapter',
-    description: 'Managing web presence and technical infrastructure for the ACM student chapter.'
-  },
-  {
-    date: '2024',
-    title: '2nd Place',
-    organization: 'UM6P Robotics Competition',
-    description: 'Achieved second place in the university-wide robotics competition.'
-  }
-]
-
-// Contact form
-const form = ref({
-  name: '',
-  email: '',
-  message: ''
-})
-
-const handleSubmit = async () => {
-  // Add your form submission logic here
-  console.log('Form submitted:', form.value)
-  // Reset form
-  form.value = {
-    name: '',
-    email: '',
-    message: ''
-  }
-}
 
 // Smooth scroll for navigation
 onMounted(() => {
