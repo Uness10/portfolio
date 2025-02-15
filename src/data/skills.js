@@ -60,17 +60,6 @@ const skillCategories = [
     },
     {
       id: 6,
-      title: 'Other',
-      icon: 'WrenchIcon',
-      skills: [
-        'Linux',
-        'Shell Scripting',
-        'API Development',   
-        'High Performance Computing' 
-      ]
-    },
-    {
-      id: 7,
       title: 'Professional Skills',
       icon: 'UserGroupIcon',
       skills: [
@@ -81,6 +70,19 @@ const skillCategories = [
         'Technical Documentation',
         'Project Management'
       ]
+
+    },
+    {
+      id: 7,
+      title: 'Other',
+      icon: 'WrenchIcon',
+      skills: [
+        'Linux',
+        'Shell Scripting',
+        'API Development',   
+        'High Performance Computing' 
+      ]
+
     }
   ]
 
