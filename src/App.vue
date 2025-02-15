@@ -201,10 +201,57 @@
       </div>
     </section>
 
-  <!-- extra section -->
+    <section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900">Extracurricular Activities</h2>
+      <p class="text-gray-600 mt-2">My involvement beyond academics</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-8">
+        <div v-for="(item, index) in extra" 
+             :key="index"
+             class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">{{ item.title }}</h3>
+              <p class="text-blue-600">{{ item.organization }}</p>
+            </div>
+            <span class="text-gray-500 mt-2 md:mt-0">{{ item.date }}</span>
+          </div>
+          <p class="text-gray-600">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- experience section -->
-   
+<!-- Experience Section -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900">Professional Experience</h2>
+      <p class="text-gray-600 mt-2">My professional journey</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-8">
+        <div v-for="(item, index) in experience" 
+             :key="index"
+             class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">{{ item.title }}</h3>
+              <p class="text-blue-600">{{ item.organization }}</p>
+            </div>
+            <span class="text-gray-500 mt-2 md:mt-0">{{ item.date }}</span>
+          </div>
+          <p class="text-gray-600">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
@@ -306,6 +353,8 @@
 import education from './data/education'
 import projects from './data/projects'
 import skillCategories from './data/skills'
+import extra from './data/extra'
+import experience from './data/experience'
 import { ref, onMounted } from 'vue'
 
 // Navigation Items
