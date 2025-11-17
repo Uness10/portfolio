@@ -1,9 +1,9 @@
 const education = [
     {
       date: 'Sep 2022 - Present',
-      title: 'Computer Science Student',
-      organization: 'College of Computing, UM6P, Ben Guerir',
-      description: 'First-year Engineering Cycle.'
+      title: 'Engineering Student in Computer Science',
+      organization: 'UM6P College of Computing, Ben Guerir',
+      description: 'Second Year Engineering Cycle (4th year).'
     },
     {
       date: 'Sep 2019 - Jun 2022',
