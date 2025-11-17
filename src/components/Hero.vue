@@ -20,7 +20,9 @@
               </p>
             </div>
             <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
-              Passionate about building robust web applications and exploring new technologies.
+                Passionate about artificial intelligence and algorithmics.
+                With a deep curiosity for how things work, I constantly explore new technologies and push the boundaries of what's possible. 
+                Let's create something extraordinary together!
             </p>
   
             <div class="flex flex-col sm:flex-row gap-4">

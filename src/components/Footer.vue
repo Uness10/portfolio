@@ -39,7 +39,7 @@
               Agadir, Morocco
             </p>
             <p class="text-gray-400">
-              younessanouar57@gmail.com
+              younessanouar57[AT]gmail.com
             </p>
           </div>
         </div>
