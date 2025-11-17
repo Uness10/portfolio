@@ -1,83 +1,108 @@
 <template>
-    <header class="relative pt-32 pb-20 px-4 overflow-hidden">
-      <div class="absolute inset-0 -z-10">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"></div>
-        <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-100/40 to-transparent rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-100/40 to-transparent rounded-full blur-3xl"></div>
-      </div>
-  
-      <div class="container mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-8">
-            <div class="space-y-4">
-              <h1 class="text-5xl md:text-6xl font-bold">
-                <span class="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  Hello, I'm Youness Anouar
-                </span>
-              </h1>
-              <p class="text-xl font-medium text-blue-600">
-                Computer Science Student
-              </p>
-            </div>
-            <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
-                Passionate about artificial intelligence and algorithmics.
-                With a deep curiosity for how things work, I constantly explore new technologies and push the boundaries of what's possible. 
-                Let's create something extraordinary together!
-            </p>
-  
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="mailto:younessanouar57@gmail.com"
-                 class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md">
-                <span class="font-medium">Get in Touch</span>
-              </a>
-              <a href="#projects"
-                 class="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
-                <span class="font-medium">View Projects</span>
-              </a>
-            </div>
-  
-            <div class="pt-4">
-              <a href="https://github.com/Uness10"
-                 target="_blank"
-                 class="inline-flex items-center px-5 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 shadow-sm hover:shadow-md">
-                <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                <span class="font-medium">View GitHub Profile</span>
-              </a>
-            </div>
+  <header id="hero" class="relative overflow-hidden pt-32 pb-24">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+      <div class="absolute -right-32 top-10 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl"></div>
+      <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-indigo-200/40 blur-3xl"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white"></div>
+    </div>
+
+    <div class="mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 sm:px-6 md:flex-row md:items-center">
+      <div class="flex-1 space-y-10">
+        <div class="inline-flex items-center rounded-full border border-blue-200/70 bg-white/70 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm shadow-blue-100/40 backdrop-blur">
+          Computer Science Student · AI Enthusiast
+        </div>
+
+        <div class="space-y-6">
+          <h1 class="text-4xl font-extrabold leading-[1.15] text-gray-900 sm:text-5xl lg:text-6xl">
+            <span class="bg-gradient-to-r from-gray-900 via-gray-800 to-blue-700 bg-clip-text text-transparent">
+              Hello, I'm Youness Anouar
+            </span>
+          </h1>
+          <p class="max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+            Passionate about artificial intelligence and algorithmics. With a deep curiosity for how things work, I constantly explore new technologies and push the boundaries of what's possible. Let's create something extraordinary together!
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <a
+            href="mailto:younessanouar57@gmail.com"
+            class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-600/30"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="#projects"
+            class="inline-flex items-center justify-center rounded-xl border border-blue-200 bg-white/80 px-7 py-3 text-base font-semibold text-blue-700 shadow-sm transition hover:border-blue-500 hover:text-blue-600"
+          >
+            View Projects
+          </a>
+          <a
+            href="https://github.com/Uness10"
+            target="_blank"
+            class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-gray-900 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-gray-900/25 transition hover:bg-black"
+          >
+            GitHub Profile
+          </a>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-blue-200/70 bg-white/80 p-5 shadow-sm shadow-blue-100/40">
+            <p class="text-3xl font-bold text-blue-600">4</p>
+            <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Major Projects</p>
+            <p class="mt-2 text-sm text-gray-500">End-to-end platforms delivered across education, research, and cloud infrastructure.</p>
           </div>
-  
-          <div class="hidden md:block relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent rounded-full blur-2xl"></div>
-              <div class="relative w-80 h-80 mx-auto overflow-hidden rounded-full shadow-xl">
-              <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 z-10"></div>
-  
-              <img 
-                src="assets/photo.png" 
-                alt="Youness Anouar"
-                class="w-full h-full object-cover object-center transition-transform duration-300"
+          <div class="rounded-2xl border border-indigo-200/70 bg-white/80 p-5 shadow-sm shadow-indigo-100/40">
+            <p class="text-3xl font-bold text-indigo-600">2</p>
+            <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-indigo-700">Industry Internships</p>
+            <p class="mt-2 text-sm text-gray-500">Hands-on experience building production-grade ML and software systems.</p>
+          </div>
+          <div class="rounded-2xl border border-purple-200/70 bg-white/80 p-5 shadow-sm shadow-purple-100/40">
+            <p class="text-3xl font-bold text-purple-600">AI</p>
+            <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-purple-700">Specialization</p>
+            <p class="mt-2 text-sm text-gray-500">Focused on intelligent systems, data science, and algorithmic problem solving.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex-1">
+        <div class="absolute -top-12 -left-6 h-36 w-36 rounded-3xl border border-white/60 bg-gradient-to-br from-blue-500/30 to-indigo-500/30 blur-2xl"></div>
+        <div class="relative mx-auto w-full max-w-sm">
+          <div class="absolute -left-6 top-20 hidden w-36 rounded-2xl border border-blue-200/60 bg-white/80 p-4 shadow-lg shadow-blue-100/40 md:block">
+            <p class="text-xs font-semibold uppercase tracking-wide text-blue-500">Focus Areas</p>
+            <p class="mt-2 text-sm font-medium text-gray-700">Machine Learning · System Design · Product Thinking</p>
+          </div>
+          <div class="absolute -right-10 bottom-8 hidden w-40 rounded-2xl border border-indigo-200/60 bg-white/80 p-4 shadow-lg shadow-indigo-100/40 md:block">
+            <p class="text-xs font-semibold uppercase tracking-wide text-indigo-500">Currently Exploring</p>
+            <p class="mt-2 text-sm font-medium text-gray-700">Scaling AI workloads and developer tooling automation.</p>
+          </div>
+
+          <div class="relative overflow-hidden rounded-[3rem] border border-white/70 bg-gradient-to-br from-blue-500/10 via-white to-indigo-500/10 p-3 shadow-2xl shadow-blue-200/40">
+            <div class="relative overflow-hidden rounded-[2.5rem] border border-white/60">
+              <img
+                src="assets/photo.png"
+                alt="Youness Anouar portrait"
+                class="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
                 @error="imageLoaded = false"
                 @load="imageLoaded = true"
               />
-  
-              <div 
-                class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-600"
+              <div
                 v-if="!imageLoaded"
+                class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-600"
               >
-                <span class="text-5xl font-bold text-white tracking-tight">YA</span>
+                <span class="text-5xl font-bold tracking-tight text-white">YA</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  const imageLoaded = ref(false);
-  </script>
-  
-  
+    </div>
+  </header>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const imageLoaded = ref(false);
+</script>
+

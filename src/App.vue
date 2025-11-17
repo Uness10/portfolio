@@ -1,230 +1,298 @@
-// App.vue
 <template>
- <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-    <NavBar/>
-    <Hero/>
-      
-
-
-  <!-- Experience Section -->
-  <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-extrabold text-gray-900">Professional Experience</h2>
-      <p class="text-lg text-gray-700 mt-2">My professional journey</p>
-      <div class="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
-    </div>
-
-    <div class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
-      <div v-for="(item, index) in experience" 
-           :key="index"
-           class="bg-white shadow-lg rounded-2xl p-6 border border-gray-200 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:border-blue-500">
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="text-xl font-bold text-gray-900">{{ item.title }}</h3>
-            <p class="text-blue-600 font-medium">{{ item.organization }}</p>
-          </div>
-          <span class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{{ item.date }}</span>
-        </div>
-        <p class="text-gray-700 mt-4 leading-relaxed">{{ item.description }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 relative overflow-hidden">
-    <!-- Decorative background -->
-    <div class="absolute inset-0 -z-10">
-      <!-- Base gradient -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
-      
-      <!-- Pattern overlay -->
-      <div class="absolute inset-0 opacity-[0.03]" 
-           style="background-image: linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px); 
-                  background-size: 48px 48px;">
-      </div>
-      
-      <!-- Decorative shapes -->
-      <div class="absolute top-1/4 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="container mx-auto px-4">
-      <!-- Section Header -->
-      <div class="text-center mb-20 relative">
-        <div class="absolute inset-0 flex items-center justify-center -z-10">
-          <div class="w-24 h-24 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full blur-2xl"></div>
-        </div>
-        <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-          Technical Skills
-        </h2>
-        <p class="text-lg text-gray-600 max-w-xl mx-auto">
-          My expertise and technical proficiencies
-        </p>
-      </div>
-
-      <!-- Skills Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        <div v-for="(category, index) in skillCategories" 
-             :key="category.id"
-             class="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-             :class="[
-               index % 4 === 0 ? 'hover:shadow-blue-100/50' : '',
-               index % 4 === 1 ? 'hover:shadow-indigo-100/50' : '',
-               index % 4 === 2 ? 'hover:shadow-purple-100/50' : '',
-               index % 4 === 3 ? 'hover:shadow-sky-100/50' : ''
-             ]"
-             style="box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);">
-          
-          <!-- Decorative header line -->
-          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r rounded-t-2xl"
-               :class="[
-                 index % 4 === 0 ? 'from-blue-500 to-blue-600' : '',
-                 index % 4 === 1 ? 'from-indigo-500 to-indigo-600' : '',
-                 index % 4 === 2 ? 'from-purple-500 to-purple-600' : '',
-                 index % 4 === 3 ? 'from-sky-500 to-sky-600' : ''
-               ]">
-          </div>
-
-          <!-- Category Header -->
-          <div class="flex items-center mb-6">
-            <div class="p-2 rounded-lg mr-3"
-                 :class="[
-                   index % 4 === 0 ? 'bg-blue-50' : '',
-                   index % 4 === 1 ? 'bg-indigo-50' : '',
-                   index % 4 === 2 ? 'bg-purple-50' : '',
-                   index % 4 === 3 ? 'bg-sky-50' : ''
-                 ]">
-              <component :is="category.icon" 
-                        class="w-6 h-6"
-                        :class="[
-                          index % 4 === 0 ? 'text-blue-600' : '',
-                          index % 4 === 1 ? 'text-indigo-600' : '',
-                          index % 4 === 2 ? 'text-purple-600' : '',
-                          index % 4 === 3 ? 'text-sky-600' : ''
-                        ]" />
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:text-transparent"
-                :class="[
-                  index % 4 === 0 ? 'group-hover:from-blue-600 group-hover:to-blue-800' : '',
-                  index % 4 === 1 ? 'group-hover:from-indigo-600 group-hover:to-indigo-800' : '',
-                  index % 4 === 2 ? 'group-hover:from-purple-600 group-hover:to-purple-800' : '',
-                  index % 4 === 3 ? 'group-hover:from-sky-600 group-hover:to-sky-800' : ''
-                ]">
-              {{ category.title }}
-            </h3>
-          </div>
-
-          <!-- Skills List -->
-          <div class="space-y-3">
-            <div v-for="(skill, skillIndex) in category.skills" 
-                 :key="skill"
-                 class="flex items-center group/skill">
-              <div class="w-6 h-6 rounded-full flex items-center justify-center mr-3 transition-colors duration-200"
-                   :class="[
-                     index % 4 === 0 ? 'bg-blue-50 group-hover/skill:bg-blue-100' : '',
-                     index % 4 === 1 ? 'bg-indigo-50 group-hover/skill:bg-indigo-100' : '',
-                     index % 4 === 2 ? 'bg-purple-50 group-hover/skill:bg-purple-100' : '',
-                     index % 4 === 3 ? 'bg-sky-50 group-hover/skill:bg-sky-100' : ''
-                   ]">
-                <svg class="w-3.5 h-3.5" 
-                     :class="[
-                       index % 4 === 0 ? 'text-blue-600' : '',
-                       index % 4 === 1 ? 'text-indigo-600' : '',
-                       index % 4 === 2 ? 'text-purple-600' : '',
-                       index % 4 === 3 ? 'text-sky-600' : ''
-                     ]"
-                     fill="none" 
-                     stroke="currentColor" 
-                     viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                </svg>
+  <div class="min-h-screen bg-gradient-to-b from-white via-blue-50/20 to-white">
+    <NavBar />
+    <main class="relative overflow-hidden">
+      <Hero />
+      <section id="experience" class="relative py-24">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-indigo-50/40 to-white"></div>
+        <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div class="flex items-center gap-3 text-blue-600">
+                <BriefcaseIcon class="h-6 w-6" />
+                <span class="text-sm font-semibold uppercase tracking-[0.3em]">Experience</span>
               </div>
-              <span class="text-gray-600 group-hover/skill:text-gray-900 transition-colors duration-200">
-                {{ skill }}
-              </span>
+              <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">Professional Journey</h2>
+              <p class="mt-2 max-w-xl text-base text-gray-600">Internships and roles where I built production-ready systems and delivered measurable outcomes.</p>
             </div>
           </div>
 
-          <!-- Optional: Skill Level Indicator -->
-          <div v-if="category.level" class="mt-6 pt-4 border-t border-gray-100">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-sm text-gray-500">Proficiency</span>
-              <span class="text-sm font-medium"
-                    :class="[
-                      index % 4 === 0 ? 'text-blue-600' : '',
-                      index % 4 === 1 ? 'text-indigo-600' : '',
-                      index % 4 === 2 ? 'text-purple-600' : '',
-                      index % 4 === 3 ? 'text-sky-600' : ''
-                    ]">
-                {{ category.level }}%
-              </span>
-            </div>
-            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div class="h-full transition-all duration-500 rounded-full"
-                   :class="[
-                     index % 4 === 0 ? 'bg-gradient-to-r from-blue-500 to-blue-600' : '',
-                     index % 4 === 1 ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' : '',
-                     index % 4 === 2 ? 'bg-gradient-to-r from-purple-500 to-purple-600' : '',
-                     index % 4 === 3 ? 'bg-gradient-to-r from-sky-500 to-sky-600' : ''
-                   ]"
-                   :style="{ width: category.level + '%' }">
+          <div class="relative mt-12 pl-6">
+            <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-blue-200 via-blue-200/60 to-transparent"></div>
+            <div
+              v-for="(role, index) in experienceTimeline"
+              :key="role.title + index"
+              class="relative pb-12 last:pb-0"
+            >
+              <div class="absolute -left-[1.4rem] mt-1 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-500/40">
+                <BriefcaseIcon class="h-5 w-5 text-white" />
+              </div>
+
+              <div class="rounded-3xl border border-blue-100/70 bg-white/90 p-8 shadow-xl shadow-blue-100/40">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ role.title }}</h3>
+                    <p class="text-base font-medium text-blue-600">{{ role.organization }}</p>
+                  </div>
+                  <span class="inline-flex items-center rounded-full border border-blue-100 bg-blue-50/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-600">
+                    {{ role.date }}
+                  </span>
+                </div>
+
+                <ul class="mt-5 space-y-2 text-sm text-gray-600">
+                  <li v-for="bullet in role.bulletPoints" :key="bullet" class="flex items-start gap-3">
+                    <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-blue-400"></span>
+                    <span>{{ bullet }}</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+      <section id="projects" class="relative py-24">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-blue-50/40 to-white"></div>
+        <div class="absolute left-10 top-12 -z-10 h-48 w-48 rounded-full bg-blue-200/40 blur-3xl"></div>
+        <div class="absolute right-10 bottom-20 -z-10 h-64 w-64 rounded-full bg-indigo-200/40 blur-3xl"></div>
 
-
-<section class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-extrabold text-gray-900">Extracurricular Activities</h2>
-      <p class="text-lg text-gray-600 mt-2">My involvement beyond academics</p>
-      <div class="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
-    </div>
-    
-    <div class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
-      <div v-for="(item, index) in extra" 
-           :key="index"
-           class="bg-white shadow-lg rounded-2xl p-6 border border-gray-200 hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="text-xl font-bold text-gray-900">{{ item.title }}</h3>
-            <p class="text-blue-600 font-medium">{{ item.organization }}</p>
+        <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div class="text-center">
+            <span class="inline-flex items-center rounded-full border border-blue-200/60 bg-blue-50/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Projects</span>
+            <h2 class="mt-6 text-3xl font-bold text-gray-900 sm:text-4xl">Signature Work & Impact</h2>
+            <p class="mx-auto mt-3 max-w-2xl text-base text-gray-600">Products and research initiatives where I merged data-driven insights with user-centered engineering.</p>
           </div>
-          <span class="text-sm text-gray-500">{{ item.date }}</span>
+
+          <div class="mt-14 grid gap-10 md:grid-cols-2">
+            <article
+              v-for="project in projects"
+              :key="project.id"
+              class="group relative overflow-hidden rounded-3xl border border-blue-100/60 bg-white/90 p-8 shadow-xl shadow-blue-100/50 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-200/70"
+            >
+              <div class="absolute right-6 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-indigo-500/20 text-blue-600">
+                <ArrowUpRightIcon class="h-5 w-5" />
+              </div>
+
+              <div class="space-y-4">
+                <div class="space-y-2">
+                  <p class="text-sm font-semibold uppercase tracking-wide text-blue-600">{{ project.duration }}</p>
+                  <h3 class="text-2xl font-semibold text-gray-900">{{ project.title }}</h3>
+                </div>
+                <p class="text-base leading-relaxed text-gray-600">{{ project.description }}</p>
+
+                <div class="flex flex-wrap gap-2 pt-2 text-sm font-medium">
+                  <span
+                    v-for="tech in project.technologies"
+                    :key="tech"
+                    class="inline-flex items-center rounded-full border border-blue-100 bg-blue-50/60 px-3 py-1 text-blue-600"
+                  >
+                    {{ tech }}
+                  </span>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                  <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Key Highlights</p>
+                  <ul class="space-y-2">
+                    <li
+                      v-for="feature in project.features"
+                      :key="feature"
+                      class="flex items-start gap-3 text-sm text-gray-600"
+                    >
+                      <CheckCircleIcon class="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span>{{ feature }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <p class="text-gray-700 mt-4">{{ item.description }}</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
-  <Contact/>
+      <section id="education" class="relative py-24">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-blue-50/30 to-white"></div>
+        <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3 text-indigo-600">
+              <AcademicCapIcon class="h-6 w-6" />
+              <span class="text-sm font-semibold uppercase tracking-[0.3em]">Education</span>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Academic Milestones</h2>
+          </div>
 
-  <Footer/>
+          <div class="mt-12 grid gap-8 md:grid-cols-2">
+            <article
+              v-for="item in education"
+              :key="item.title"
+              class="relative overflow-hidden rounded-3xl border border-indigo-100/60 bg-white/90 p-8 shadow-xl shadow-indigo-100/40"
+            >
+              <div class="absolute right-6 top-6 h-14 w-14 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/20"></div>
+              <span class="relative inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">{{ item.date }}</span>
+              <h3 class="relative mt-4 text-xl font-semibold text-gray-900">{{ item.title }}</h3>
+              <p class="relative mt-2 text-base font-medium text-indigo-600">{{ item.organization }}</p>
+              <p class="relative mt-4 text-sm leading-relaxed text-gray-600">{{ item.description }}</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
+      <section id="skills" class="relative py-24">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+        <div class="absolute inset-0 -z-10 opacity-[0.04]" style="background-image: linear-gradient(90deg, rgba(15,23,42,0.1) 1px, transparent 1px), linear-gradient(rgba(15,23,42,0.1) 1px, transparent 1px); background-size: 48px 48px;"></div>
+        <div class="absolute -left-16 top-24 -z-10 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl"></div>
+        <div class="absolute -right-20 bottom-10 -z-10 h-80 w-80 rounded-full bg-indigo-200/40 blur-3xl"></div>
+
+        <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div class="text-center">
+            <span class="inline-flex items-center rounded-full border border-blue-200/60 bg-blue-50/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Skills</span>
+            <h2 class="mt-6 text-3xl font-bold text-gray-900 sm:text-4xl">Technical Expertise</h2>
+            <p class="mx-auto mt-3 max-w-2xl text-base text-gray-600">A blend of applied machine learning, thoughtful software engineering, and modern tooling experience.</p>
+          </div>
+
+          <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <article
+              v-for="(category, index) in enrichedSkillCategories"
+              :key="category.id"
+              class="group relative overflow-hidden rounded-3xl border border-white/60 bg-white/90 p-7 shadow-lg shadow-blue-100/30 transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+            >
+              <div class="absolute inset-x-0 top-0 h-1" :class="headerAccent[index % headerAccent.length]"></div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl" :class="iconBackground[index % iconBackground.length]">
+                  <component :is="category.iconComponent" class="h-6 w-6" :class="iconColor[index % iconColor.length]" />
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">{{ category.title }}</h3>
+              </div>
+
+              <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                <li v-for="skill in category.skills" :key="skill" class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full" :class="bulletAccent[index % bulletAccent.length]"></span>
+                  <span>{{ skill }}</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="extracurricular" class="relative py-24">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-purple-50/40 to-white"></div>
+        <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div class="text-center">
+            <span class="inline-flex items-center rounded-full border border-purple-200/60 bg-purple-50/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-600">Extracurricular</span>
+            <h2 class="mt-6 text-3xl font-bold text-gray-900 sm:text-4xl">Leadership & Community</h2>
+            <p class="mx-auto mt-3 max-w-2xl text-base text-gray-600">Initiatives beyond the classroom that shaped my perspective and honed my collaboration skills.</p>
+          </div>
+
+          <div class="mt-14 grid gap-8 md:grid-cols-2">
+            <article
+              v-for="activity in extracurricular"
+              :key="activity.title + activity.date"
+              class="relative overflow-hidden rounded-3xl border border-purple-100/60 bg-white/90 p-7 shadow-xl shadow-purple-100/50 transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <div class="absolute right-6 top-6 h-12 w-12 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/20"></div>
+              <div class="relative flex flex-col gap-3">
+                <span class="inline-flex w-fit items-center rounded-full border border-purple-100 bg-purple-50/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-purple-600">{{ activity.date }}</span>
+                <h3 class="text-xl font-semibold text-gray-900">{{ activity.title }}</h3>
+                <p class="text-sm font-medium text-purple-600">{{ activity.organization }}</p>
+                <p class="text-sm leading-relaxed text-gray-600">{{ activity.description }}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <Contact />
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script setup>
-import skillCategories from './data/skills'
-import extra from './data/extra'
-import experience from './data/experience'
-import Footer from './components/Footer.vue'
-import Contact from './components/Contact.vue'
-import NavBar from './components/NavBar.vue'
-import Hero from './components/Hero.vue'
+import { computed, markRaw } from 'vue';
+import {
+  AcademicCapIcon,
+  ArrowUpRightIcon,
+  BriefcaseIcon,
+  CheckCircleIcon,
+  CircleStackIcon,
+  Cog6ToothIcon,
+  CommandLineIcon,
+  CpuChipIcon,
+  SparklesIcon,
+  WrenchScrewdriverIcon
+} from '@heroicons/vue/24/outline';
+import projectsData from './data/projects';
+import educationData from './data/education';
+import experienceData from './data/experience';
+import extraData from './data/extra';
+import skillCategoriesData from './data/skills';
+import Footer from './components/Footer.vue';
+import Contact from './components/Contact.vue';
+import NavBar from './components/NavBar.vue';
+import Hero from './components/Hero.vue';
+
+const projects = projectsData;
+const education = educationData;
+const extracurricular = extraData;
+
+const iconMap = {
+  CpuChipIcon: markRaw(CpuChipIcon),
+  DatabaseIcon: markRaw(CircleStackIcon),
+  CodeIcon: markRaw(CommandLineIcon),
+  CodeBracketIcon: markRaw(Cog6ToothIcon),
+  WrenchIcon: markRaw(WrenchScrewdriverIcon),
+  default: markRaw(SparklesIcon)
+};
+
+const enrichedSkillCategories = computed(() =>
+  skillCategoriesData.map((category) => ({
+    ...category,
+    iconComponent: iconMap[category.icon] ?? iconMap.default
+  }))
+);
+
+const experienceTimeline = computed(() =>
+  experienceData.map((item) => ({
+    ...item,
+    bulletPoints: item.description
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line.length)
+      .map((line) => line.replace(/^[-•]\s*/, ''))
+  }))
+);
+
+const headerAccent = [
+  'bg-gradient-to-r from-blue-500 to-blue-600',
+  'bg-gradient-to-r from-indigo-500 to-indigo-600',
+  'bg-gradient-to-r from-purple-500 to-purple-600',
+  'bg-gradient-to-r from-sky-500 to-sky-600'
+];
+
+const iconBackground = [
+  'bg-blue-50',
+  'bg-indigo-50',
+  'bg-purple-50',
+  'bg-sky-50'
+];
+
+const iconColor = [
+  'text-blue-600',
+  'text-indigo-600',
+  'text-purple-600',
+  'text-sky-600'
+];
+
+const bulletAccent = [
+  'bg-blue-400',
+  'bg-indigo-400',
+  'bg-purple-400',
+  'bg-sky-400'
+];
 </script>
 
 <style>
-/* Add any custom styles here */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -235,12 +303,6 @@ import Hero from './components/Hero.vue'
   opacity: 0;
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -250,11 +312,11 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #94a3b8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #64748b;
 }
 </style>
